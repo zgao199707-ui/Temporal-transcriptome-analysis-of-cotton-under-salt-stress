@@ -15,7 +15,6 @@ SLURM command alias：alias mysrun='srun --nodes 1 --ntasks 1 --cpus-per-task 1 
 cp /home/agis/huguanjing_group/gaozhan/time_RNAseq/01.RawData/*/*.fq.gz dat/timeRNAseq/ 
 
 # Step 2: Generate quality reports for raw data using FastQC
-# (edit input/output paths in GetQuality.sh if needed)
 for i in `ls dat/timeRNAseq/*.fq.gz` ; do 
     sh ../../src/main.sh $(basename "${i%.fa.gz}") run/GetQuality.sh $i res/RawQC
 done
