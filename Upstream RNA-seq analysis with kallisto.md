@@ -1,21 +1,15 @@
 # Prerequisites
-# The default conda environment has already been set up, and required software 
-# is installed and available in the current environment. Necessary directories 
-# have also been created.
+The default conda environment has already been set up, and required software is installed and available in the current environment. Necessary directories have also been created.
 
 # Directory structure
-# Reference genome files: /home/agis/huguanjing_group/gaozhan/time_RNAseq/raw/ref
-# Main loop script:       /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/main.sh
-# FastQC script:          /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/GetQuality.sh
-# fastp script:           /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/TrimFqFile.sh
-# Kallisto script:        /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/kallistoRun.sh
-# Working directory:      /home/agis/huguanjing_group/gaozhan/time_RNAseq/exp/20240913/run
-
-# Raw sequencing data
-# Located at: /home/agis/huguanjing_group/gaozhan/time_RNAseq/01.RawData/
-
-# SLURM command alias
-alias mysrun='srun --nodes 1 --ntasks 1 --cpus-per-task 1 -p low,big --mem-per-cpu=8G'
+Reference genome files: /home/agis/huguanjing_group/gaozhan/time_RNAseq/raw/ref
+Main loop script:       /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/main.sh
+FastQC script:          /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/GetQuality.sh
+fastp script:           /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/TrimFqFile.sh
+Kallisto script:        /home/agis/huguanjing_group/gaozhan/time_RNAseq/src/kallistoRun.sh
+Working directory:      /home/agis/huguanjing_group/gaozhan/time_RNAseq/exp/20240913/run
+Raw sequencing data: /home/agis/huguanjing_group/gaozhan/time_RNAseq/01.RawData/
+SLURM command alias：alias mysrun='srun --nodes 1 --ntasks 1 --cpus-per-task 1 -p low,big --mem-per-cpu=8G'
 
 # Step 1: Organize raw data
 cp /home/agis/huguanjing_group/gaozhan/time_RNAseq/01.RawData/*/*.fq.gz dat/timeRNAseq/ 
@@ -26,7 +20,7 @@ for i in `ls dat/timeRNAseq/*.fq.gz` ; do
     sh ../../src/main.sh $(basename "${i%.fa.gz}") run/GetQuality.sh $i res/RawQC
 done
 
-# Run MultiQC to summarize raw FastQC reports
+## Run MultiQC to summarize raw FastQC reports
 mysrun -o log/multiQCtrimedFq1.out -e log/multiQCtrimedFq1.err \
     multiqc -o res/RawQC/RawQC res/RawQC/
 
@@ -60,15 +54,9 @@ done
 mysrun -o log/multiQCtrimedFq2.out -e log/multiQCtrimedFq2.err \
     multiqc -o res/CleanQC/CleanQC res/CleanQC/
 
-# ===============================
-# Transcriptome Quantification with Kallisto
-# ===============================
 
-# After filtering and quality control, proceed with transcript quantification 
-# using `kallisto index` and `kallisto quant`. 
-# Before alignment, build the genome index file. 
-# Also prepare a chromosome-length tab-separated file if needed. 
-# Then perform paired-end quantification with `kallisto quant`.
+# Transcriptome Quantification with Kallisto
+After filtering and quality control, proceed with transcript quantification, using `kallisto index` and `kallisto quant`. Before alignment, build the genome index file. Also prepare a chromosome-length tab-separated file if needed. Then perform paired-end quantification with `kallisto quant`.
 
 # Step 1. Build kallisto index
 srun --nodes 1 --ntasks 1 --cpus-per-task 8 -p low,big \
