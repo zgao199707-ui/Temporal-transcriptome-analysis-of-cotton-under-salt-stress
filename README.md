@@ -8,4 +8,4 @@
 
 4.Weighted Gene Coexpression Network Analysis for DEGs
 
-5.Analysis of circadian or temporal rhythmic patterns in gene expression
+5.Analysis of circadian or temporal rhythmic patterns in gene expression and visualization
