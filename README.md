@@ -6,6 +6,6 @@
 
 3.Differential expression analysis with DESeq2 considering multiple factors.
 
-4.WGCNA_full_gz_salt.R: Weighted Gene Coexpression Network Analysis for DEGs.
+4.[WGCNA_full_gz_salt.R](./WGCNA_full_gz_salt.R): Weighted Gene Coexpression Network Analysis for DEGs.
 
 5.Analysis of circadian or temporal rhythmic patterns in gene expression and visualization.
