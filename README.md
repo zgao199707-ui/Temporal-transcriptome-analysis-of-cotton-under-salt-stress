@@ -4,8 +4,8 @@
 
 2.[Pairwise_DEseq2.R](./Pairwise_DEseq2.R): Pairwise comparisons of differential expression performed with DESeq2.
 
-3.[DESeq2_multifactor_differential_expression_analysis.R](./DESeq2_multifactor_differential_expression_analysis.R):Differential expression analysis with DESeq2 considering multiple factors.
+3.[DESeq2_multifactor_differential_expression_analysis.R](./DESeq2_multifactor_differential_expression_analysis.R):Differential expression analysis with DESeq2 considering multiple factors, LRT model was used.
 
 4.[WGCNA_full_gz_salt.R](./WGCNA_full_gz_salt.R): Weighted Gene Coexpression Network Analysis for DEGs.
 
-5.[Metacycle_time.R](./Metacycle_time.R)Analysis of circadian or temporal rhythmic patterns in gene expression and visualization.
+5.[Metacycle_time.R](./Metacycle_time.R)Analysis of circadian or temporal rhythmic patterns in gene expression and visualization,including Lomb-Scargle Periodogram (LS), JTK_CYCLE, and ARSER method.
