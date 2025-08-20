@@ -1,6 +1,6 @@
 # Temporal-transcriptome-analysis-of-cotton-under-salt-stress
 
-1.[Upstream RNA-seq analysis with kallisto.md](./Upstream%20RNA-seq%20analysis%20with%20kallisto.md):Adapter trimming, quality control, and transcriptome quantification with Kallisto of the raw RNA-seq data.
+1.[Upstream RNA-seq analysis with kallisto.txt](./Upstream%20RNA-seq%20analysis%20with%20kallisto.txt):Adapter trimming, quality control, and transcriptome quantification with Kallisto of the raw RNA-seq data.
 
 2.[Pairwise_DEseq2.R](./Pairwise_DEseq2.R): Pairwise comparisons of differential expression performed with DESeq2.
 
